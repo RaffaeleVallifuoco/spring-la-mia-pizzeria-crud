@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import it.raffo.raffopizza.repository.PizzaRepo;
 import it.raffo.raffopizza.model.Pizza;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -24,6 +25,14 @@ public class PizzaController {
         model.addAttribute("list", pizzeList);
 
         return "/pizza/index";
+    }
+
+    @GetMapping("/show/(id)")
+    public String show(@PathVariable("id") Integer id, Model model) {
+
+        model.addAttribute("refPizza", repo.getReferenceById(id));
+
+        return "/pizza/show";
     }
 
 }
