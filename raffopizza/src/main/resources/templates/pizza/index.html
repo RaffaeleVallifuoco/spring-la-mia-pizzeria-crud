@@ -14,14 +14,28 @@
 
 
 <body>
+  
 
     <header>
-        <nav class="navbar bg-danger" data-bs-theme="dark">
-            <div class="container justify-content-center">
-                <a class="navbar-brand" href="#">
-                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
-                    <apan class="fw-3"></span>
+        <nav class="navbar  bg-danger" data-bs-theme="dark">
+            <div class="container text-center">
+                <a class="navbar-brand " href="#">
+                    
                 </a>
+                <a class="navbar-brand " href="#">
+                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
+                </a>
+                
+                <div class="flex-row" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
+                        <li class="nav-item"> Crea la tua pizza
+                            
+                        </li>
+                       
+                        
+                    </ul>
+                    
+                </div>
             </div>
         </nav>
     </header>
@@ -50,7 +64,8 @@
                                         <span> ) </span>
                                     </div>
                                 </td>
-                                <td><a class="text-danger" th:href="${pizza.photo}" target="_blank">photo</a></td>
+                                <td><img th:src="${pizza.photo}" width="80" height="80" alt="Immagine dal Web" /></td>
+                                <!-- <td><a class="text-danger" th:href="${pizza.photo}" target="_blank">photo</a></td> -->
                                 <td  class="fw-bold" th:text="${pizza.price}"></td>
 
                             </tr>
