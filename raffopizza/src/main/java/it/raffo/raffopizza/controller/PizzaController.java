@@ -59,6 +59,30 @@ public class PizzaController {
         repo.save(pizzaForm);
 
         return "redirect:/index";
+
+    }
+
+    @GetMapping("/index")
+    public String createCanvas(Model model) {
+
+        model.addAttribute("pizza", new Pizza());
+
+        return "/pizza/cindex";
+    }
+
+    @PostMapping("/index")
+    public String storeCanvas(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult,
+            Model model) {
+        // TODO: process POST request
+
+        if (bindingResult.hasErrors()) {
+            return "/pizza/create";
+        }
+
+        repo.save(pizzaForm);
+
+        return "redirect:/index";
+
     }
 
 }

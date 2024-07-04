@@ -56,7 +56,7 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">NOME</label>
                             <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il nome della pizza"
-                                th:field="*{name}" th:errorClass="is-invalid">
+                                th:field="*{name}" th:errorClass="is-invalid" required>
                             <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
                                 <ul>
                                     <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
