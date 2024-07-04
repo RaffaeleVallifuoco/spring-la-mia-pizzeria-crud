@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Pizza")
@@ -15,22 +16,25 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    @NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "campo obbligatorio")
+    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "campo obbligatorio")
+    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
     @Column(name = "description", nullable = false)
     private String description;
 
-    @NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "campo obbligatorio")
+    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
     @Column(name = "photo", nullable = false)
     private String photo;
 
-    @NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "campo obbligatorio")
+    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
     @Column(name = "price", nullable = false)
     private String price;
-
     // --------------------------------------------
     // ------------ GETTERS & SETTERS -------------
     // --------------------------------------------
