@@ -20,24 +20,19 @@
         <nav class="navbar  bg-danger mb-5" data-bs-theme="dark">
             <div class="container text-center">
                 <a class="navbar-brand " href="#">
-    
+
                 </a>
                 <a class="navbar-brand " th:href="@{/index}">
                     <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
                 </a>
-    
+
                 <div class="flex-row" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
-                        <li class="nav-item">
-                            <button class="btn btn-light rounded">
-                                <a class="fw-bold text-dark text-decoration-none" th:href="@{/index/create}"
-                                    target="_blank">Crea la tua pizza</a>
-                            </button>
-                        </li>
-    
-    
+
+
+
                     </ul>
-    
+
                 </div>
             </div>
         </nav>
@@ -46,85 +41,31 @@
     <main>
         <div class="container mt-4">
             <div class="row align-items-center">
-                <div class="col-10 mt-4">
-                    <h1 class="fw-bold m-4">Le nostre proposte :</h1>
-                    <table class="table table-striped table-hover">
-                        <thead class="">
-                            <tr class="table-danger-emphasis">
-                                <th scope="col">Nome</th>
-                                <th scope="col"></th>
-                                <th colspan="2" scope="col">Prezzo</th>
+                <div class="col-8">
+                    <h1 class="fw-bold mb-3">Dettaglio pizze</h1>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="pizza : ${list}">
-                                <td>
-                                    <div th:text="${pizza.name}" class="fw-bold"></div>
-                                    <div class="fw-1 ">
-                                        <span> ( </span>
-                                        <span th:text="${pizza.description}"></span>
-                                        <span> ) </span>
-                                    </div>
-                                </td>
-                                <td><img th:src="${pizza.photo}" width="80" height="80" alt="Immagine dal Web" /></td>
-                                <!-- <td><a class="text-danger" th:href="${pizza.photo}" target="_blank">photo</a></td> -->
-                                <td class="fw-bold" th:text="${pizza.price}"></td>
+                    <p class="mt-4">
+                    <span class="fw-bold fs-3 me-3" th:text="|${pizza.name}|"></span>
+                    <span th:text="${pizza.price}"></span>
+                    <span> €</span>
+                    <div class="my-3">
+                        <span> ( </span>
+                        <span th:text="${pizza.description}"></span>
+                        <span> ) </span>
+                    </div>
+                    <div>
+                        <img class="px-0" th:src="${pizza.photo}" width="200" height="200" alt="Immagine dal Web" />
+                    </div>
+                    <div>
+                        
+                    </div>
 
-                            </tr>
-                        </tbody>
-                    </table>
+                    </p>
+
 
                 </div>
 
-                <div class="col-2 align-items-center ">
 
-
-                    <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                        aria-controls="offcanvasExample">
-
-
-
-
-                        <img th:src="@{/img/sale.gif}" alt="Logo" class="navbar-logo " width="150" height="200" />
-
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-                            aria-labelledby="offcanvasExampleLabel">
-                            <div class="offcanvas-header">
-                                <h3 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">
-                                    Promo</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <div class="fs-4">
-                                    Non perderti la super offerta esclusiva per te.
-                                    Prendi 8 e paghi 1!
-                                    Crea la tua pizza con gli ingredienti che preferisci. Aggiungine 8 al carrello e
-                                    pagane soltanto 1.
-                                    Che aspetti, approfittane subito
-                                </div>
-                                <div class="fs-14 text-warning">
-
-                                    Offerta valida tutti i giorni dal lunedì al martedì dalle 19.59 alle 20:00
-                                </div>
-                                <div class="dropdown mt-3">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown">
-                                        Dropdown button
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </a>
-                </div>
             </div>
         </div>
     </main>
