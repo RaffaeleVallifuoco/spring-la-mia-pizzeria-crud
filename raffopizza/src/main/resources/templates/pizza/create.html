@@ -16,16 +16,16 @@
 <body>
 
 
-    <header>
-    <<nav class="navbar fixed-top bg-danger mb-5" data-bs-theme="dark">
+    <header class="sticky-top">
+        <nav class="navbar  bg-danger mb-5" data-bs-theme="dark">
             <div class="container text-center">
                 <a class="navbar-brand " href="#">
-
+    
                 </a>
-                <a class="navbar-brand " th:href="@{/index}" target="_blank">
-                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
+                <a class="navbar-brand " th:href="@{/index}">
+                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" target="_blank"/>
                 </a>
-
+    
                 <div class="flex-row" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
                         <li class="nav-item">
@@ -34,10 +34,10 @@
                                     >Crea la tua pizza</a>
                             </button>
                         </li>
-
-
+    
+    
                     </ul>
-
+    
                 </div>
             </div>
         </nav>
@@ -54,20 +54,43 @@
                     <form id="pizzaForm" th:object="${pizza}" th:action="@{/index/create}" method="post">
                     
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nome</label>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il nome della pizza">
+                            <label for="name" class="form-label">NOME</label>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il nome della pizza"
+                                th:field="*{name}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
+                                <ul>
+                                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Ingredienti</label>
-                            <input name="description" type="text" class="form-control" id="description" placeholder="Cosa vogliamo metterci sopra ?">
+                            <input name="description" type="text" class="form-control" id="description" placeholder="Cosa vogliamo metterci sopra ?" th:field="*{description}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('description')}" class="invalid-feedback">
+                                <ul>
+                                    <li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Prezzo</label>
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Inserisci il prezzo ">
+                            <input name="price" type="text" class="form-control" id="price" placeholder="Inserisci il prezzo"
+                                th:field="*{price}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
+                                <ul>
+                                    <li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="photo" class="form-label">Foto</label>
-                            <input name="photo" type="text" class="form-control" id="photo" placeholder="Inserisci il link alla foto della pizza">
+                            <input name="photo" type="text" class="form-control" id="photo" placeholder="Carica un url valido"
+                                th:field="*{photo}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('photo')}"class="invalid-feedback">
+                                <ul>
+                                    <li th:each="err : ${#fields.errors('photo')}" th:text="${err}"></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="mb-3 form-check mt-3">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">

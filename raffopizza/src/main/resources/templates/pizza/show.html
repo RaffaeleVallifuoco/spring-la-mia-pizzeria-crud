@@ -16,29 +16,31 @@
 <body>
 
 
-    <header>
-    <nav class="navbar  bg-danger" data-bs-theme="dark">
-        <div class="container text-center">
-            <a class="navbar-brand " href="#">
+    <header class="sticky-top">
+        <nav class="navbar  bg-danger mb-5" data-bs-theme="dark">
+            <div class="container text-center">
+                <a class="navbar-brand " href="#">
     
-            </a>
-            <a class="navbar-brand " th:href="@{/index}">
-                <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
-            </a>
+                </a>
+                <a class="navbar-brand " th:href="@{/index}">
+                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
+                </a>
     
-            <div class="flex-row" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
-                    <li class="nav-item">
-                        <a class="fw-bold text-white text-decoration-none" th:href="@{/index/create}">Crea la tua pizza</a>
+                <div class="flex-row" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
+                        <li class="nav-item">
+                            <button class="btn btn-light rounded">
+                                <a class="fw-bold text-dark text-decoration-none" th:href="@{/index/create}"
+                                    target="_blank">Crea la tua pizza</a>
+                            </button>
+                        </li>
     
-                    </li>
     
+                    </ul>
     
-                </ul>
-    
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </header>
 
     <main>

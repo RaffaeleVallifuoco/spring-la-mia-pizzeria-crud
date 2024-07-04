@@ -53,12 +53,12 @@ public class PizzaController {
         // TODO: process POST request
 
         if (bindingresult.hasErrors()) {
-            return "redirect:/index";
+            return "/pizza/create";
         }
 
         repo.save(pizzaForm);
 
-        return "redirect:/pizza/index";
+        return "redirect:/index";
     }
 
 }

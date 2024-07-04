@@ -15,16 +15,19 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
+    @NotBlank(message = "campo obbligatorio")
     @Column(name = "name", nullable = false, unique = true)
-
     private String name;
 
+    @NotBlank(message = "campo obbligatorio")
     @Column(name = "description", nullable = false)
     private String description;
 
+    @NotBlank(message = "campo obbligatorio")
     @Column(name = "photo", nullable = false)
     private String photo;
 
+    @NotBlank(message = "campo obbligatorio")
     @Column(name = "price", nullable = false)
     private String price;
 
