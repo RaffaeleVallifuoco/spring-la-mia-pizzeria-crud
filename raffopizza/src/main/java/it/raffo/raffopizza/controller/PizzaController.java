@@ -66,5 +66,4 @@ public class PizzaController {
         return "redirect:/index";
 
     }
-
 }
