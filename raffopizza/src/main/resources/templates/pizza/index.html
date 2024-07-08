@@ -17,6 +17,13 @@
             top: 60vh;
             left: 76vw;
         }
+
+        .fixed-image {
+            position: fixed;
+            top: 10vh;
+            left: 76vw;
+            height: 100vh;
+        }
     </style>
 
 
@@ -136,13 +143,50 @@
 
                 <!-- RIGHT COL -->
 
-                <div class="col-2 align-items-center">
+                <div class="col-2 ">
+
+                    <!-- CAROUSEL -->
+
+                    <div class="container fixed-image opacity-75 shadow">
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/forno1.jpg}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/forno2.jpg}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/forno5.webp}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/forno4.jpg}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/forno7.jpg}" class="d-block w-100" alt="...">
+                                </div>
+
+
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+
 
                     <div class="float-end">
 
                         <!-- OFFCANVAS BUTTON -->
 
-                        <button class="btn btn-danger fixed-button p-3 fw-bold fs-5" type="button"
+                        <button class="btn btn-danger fixed-bottom p-2 fw-bold fs-5" type="button"
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                             aria-controls="offcanvasExample">
                             Crea la tua pizza
@@ -169,7 +213,7 @@
 
                         </div>
                     </div>
-                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -177,7 +221,23 @@
     </div>
 
 
-    <footer>
+    <footer class="mt-5">
+
+        <div class="card text-center" my-5>
+            <div class="card-header">
+                RAFFOPIZZA ®
+                
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="https://github.com/RaffaeleVallifuoco" target="_blank" class="btn btn-outline-danger rounded p-2 mb-5">GitHub profile</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                2024
+            </div>
+        </div>
+
     </footer>
 
 

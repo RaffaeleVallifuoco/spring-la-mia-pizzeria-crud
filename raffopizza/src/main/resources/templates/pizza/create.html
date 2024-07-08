@@ -30,10 +30,7 @@
                 <div class="flex-row" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
                         <li class="nav-item">
-                            <button class="btn btn-light rounded">
-                                <a class="fw-bold text-dark text-decoration-none" th:href="@{/index/create}">Crea la tua
-                                    pizza</a>
-                            </button>
+                            
                         </li>
 
 
@@ -46,9 +43,9 @@
 
     <main>
         <div class="container mt-5">
+            <h1 class="fw-bold my-5">Crea la tua Pizza</h1>
             <div class="row mt-5">
                 <div class="col-6">
-                    <h1 class="fw-bold m-5">Crea la tua Pizza</h1>
 
                     <!-- FORM -->
 
@@ -111,18 +108,35 @@
                         <!-- CHECK & SUBMIT -->
 
                         <div class="mb-3 form-check mt-3">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                            <input type="checkbox" class="form-check-input" id="acceptConditions">
                             <label class="form-check-label" for="exampleCheck1">Accetto termini e
                                 condizioni</label>
                         </div>
-                        <button type="submit" class="btn btn-danger rounded mt-5">Crea la pizza !</button>
+                        <button type="submit" class="btn btn-danger rounded mt-5">Inserisci la pizza</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer class="mt-5">
+    
+        <div class="card text-center" my-5>
+            <div class="card-header">
+                RAFFOPIZZA ®
+    
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="https://github.com/RaffaeleVallifuoco" target="_blank" class="btn btn-outline-danger rounded p-2 mb-5">GitHub
+                    profile</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                2024
+            </div>
+        </div>
+    
     </footer>
 
 
