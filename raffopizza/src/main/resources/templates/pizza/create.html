@@ -20,24 +20,25 @@
         <nav class="navbar  bg-danger mb-5" data-bs-theme="dark">
             <div class="container text-center">
                 <a class="navbar-brand " href="#">
-    
+
                 </a>
                 <a class="navbar-brand " th:href="@{/index}">
-                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" target="_blank"/>
+                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80"
+                        target="_blank" />
                 </a>
-    
+
                 <div class="flex-row" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
                         <li class="nav-item">
                             <button class="btn btn-light rounded">
-                                <a class="fw-bold text-dark text-decoration-none" th:href="@{/index/create}"
-                                    >Crea la tua pizza</a>
+                                <a class="fw-bold text-dark text-decoration-none" th:href="@{/index/create}">Crea la tua
+                                    pizza</a>
                             </button>
                         </li>
-    
-    
+
+
                     </ul>
-    
+
                 </div>
             </div>
         </nav>
@@ -50,50 +51,67 @@
                     <h1 class="fw-bold m-5">Crea la tua Pizza</h1>
 
                     <!-- FORM -->
-                    
+
                     <form id="pizzaForm" th:object="${pizza}" th:action="@{/index/create}" method="post">
-                    
+
+                        <!-- NAME -->
+
                         <div class="mb-3">
                             <label for="name" class="form-label">NOME</label>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Inserisci il nome della pizza"
-                                th:field="*{name}" th:errorClass="is-invalid" required>
+                            <input name="name" type="text" class="form-control" id="name"
+                                placeholder="Inserisci il nome della pizza" th:field="*{name}"
+                                th:errorClass="is-invalid">
                             <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
                                 <ul>
                                     <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- DESCRIPTION -->
+
                         <div class="mb-3">
                             <label for="description" class="form-label">Ingredienti</label>
-                            <input name="description" type="text" class="form-control" id="description" placeholder="Cosa vogliamo metterci sopra ?" th:field="*{description}" th:errorClass="is-invalid">
+                            <input name="description" type="text" class="form-control" id="description"
+                                placeholder="Cosa vogliamo metterci sopra ?" th:field="*{description}"
+                                th:errorClass="is-invalid">
                             <div th:if="${#fields.hasErrors('description')}" class="invalid-feedback">
                                 <ul>
                                     <li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- PRICE -->
+
                         <div class="mb-3">
                             <label for="price" class="form-label">Prezzo</label>
-                            <input name="price" type="text" class="form-control" id="price" placeholder="Inserisci il prezzo"
-                                th:field="*{price}" th:errorClass="is-invalid">
+                            <input name="price" type="text" class="form-control" id="price"
+                                placeholder="Inserisci il prezzo ( FORMATO AAA.BB)" th:field="*{price}" th:errorClass="is-invalid">
                             <div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
                                 <ul>
                                     <li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- PHOTO -->
+
                         <div class="mb-3">
                             <label for="photo" class="form-label">Foto</label>
-                            <input name="photo" type="text" class="form-control" id="photo" placeholder="Carica un url valido"
-                                th:field="*{photo}" th:errorClass="is-invalid">
-                            <div th:if="${#fields.hasErrors('photo')}"class="invalid-feedback">
+                            <input name="photo" type="text" class="form-control" id="photo"
+                                placeholder="Carica un url valido" th:field="*{photo}" th:errorClass="is-invalid">
+                            <div th:if="${#fields.hasErrors('photo')}" class="invalid-feedback">
                                 <ul>
                                     <li th:each="err : ${#fields.errors('photo')}" th:text="${err}"></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- CHECK & SUBMIT -->
+
                         <div class="mb-3 form-check mt-3">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                             <label class="form-check-label" for="exampleCheck1">Accetto termini e
                                 condizioni</label>
                         </div>

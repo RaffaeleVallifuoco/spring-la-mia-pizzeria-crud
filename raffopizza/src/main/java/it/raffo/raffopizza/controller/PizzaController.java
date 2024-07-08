@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/index")
@@ -51,31 +52,12 @@ public class PizzaController {
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingresult, Model model) {
         // TODO: process POST request
+        System.out.println("prima dell'if");
+        System.out.println(pizzaForm.getName());
+        System.out.println(pizzaForm.getDescription());
 
         if (bindingresult.hasErrors()) {
-            return "/pizza/create";
-        }
-
-        repo.save(pizzaForm);
-
-        return "redirect:/index";
-
-    }
-
-    @GetMapping("/index")
-    public String createCanvas(Model model) {
-
-        model.addAttribute("pizza", new Pizza());
-
-        return "/pizza/cindex";
-    }
-
-    @PostMapping("/index")
-    public String storeCanvas(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult,
-            Model model) {
-        // TODO: process POST request
-
-        if (bindingResult.hasErrors()) {
+            System.out.println("dentro if");
             return "/pizza/create";
         }
 

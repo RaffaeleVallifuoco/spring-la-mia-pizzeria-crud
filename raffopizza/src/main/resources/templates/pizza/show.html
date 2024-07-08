@@ -15,6 +15,9 @@
 
 <body>
 
+        <!-- ------------------------
+             ---------HEADER---------
+             ------------------------ -->
 
     <header class="sticky-top">
         <nav class="navbar  bg-danger mb-5" data-bs-theme="dark">
@@ -38,37 +41,46 @@
         </nav>
     </header>
 
+
+    <!-- ----------------------------
+         -----------MAIN-------------
+         ---------------------------- -->
+
     <main>
         <div class="container mt-4">
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <h1 class="fw-bold mb-3">Dettaglio pizze</h1>
+            <h1 class="fw-bold mb-5">Dettaglio pizze</h1>
+            <div class="d-flex justify-content-center">
 
-                    <p class="mt-4">
-                    <span class="fw-bold fs-3 me-3" th:text="|${pizza.name}|"></span>
-                    <span th:text="${pizza.price}"></span>
-                    <span> €</span>
-                    <div class="my-3">
-                        <span> ( </span>
-                        <span th:text="${pizza.description}"></span>
-                        <span> ) </span>
+                <div class="card border-top-0 border-danger border-3 rounded-bottom" style="width: 450px;" >
+                        <img th:src="${pizza.photo}" width="100%" height="auto" class="card-img-top" alt="Foto Pizza Url">
+                    <div class="card-body">
+                        <p class="card-title d-flex justify-content-between">
+                            <span class="card-title text-start me-5 fw-bold fs-5" th:text="${pizza.name}">
+                            </span>
+                            <span class="ms-5">
+                                <span class="fs-5" th:text="|€ ${#numbers.formatDecimal(pizza.price, 1, 2, 'COMMA')}|"></span>
+                                <span> €</span>
+                            </span>
+
+                        <p>
+                        <p class="card-text">
+                            <span> ( </span>
+                            <span th:text="${pizza.description}"></span>
+                            <span> ) </span>
+                        </p>
+                        <a th:href="@{/index}" class="btn btn-danger rounded my-4">Torna al menu'</a>
                     </div>
-                    <div>
-                        <img class="px-0" th:src="${pizza.photo}" width="200" height="200" alt="Immagine dal Web" />
-                    </div>
-                    <div>
-                        
-                    </div>
-
-                    </p>
-
-
                 </div>
 
-
             </div>
+
         </div>
     </main>
+
+
+        <!-- ----------------------------
+             ----------FOOTER------------
+             ---------------------------- -->
 
     <footer>
     </footer>

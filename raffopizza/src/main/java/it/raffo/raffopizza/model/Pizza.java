@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Pizza")
@@ -16,25 +17,23 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    @NotNull(message = "campo obbligatorio")
-    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "Campo Obblihatorio")
+    @NotBlank(message = "Campo Obbligatorio")
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @NotNull(message = "campo obbligatorio")
-    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "Campo Obblihatorio")
+    @NotBlank(message = "Campo Obbligatorio")
     @Column(name = "description", nullable = false)
     private String description;
 
-    @NotNull(message = "campo obbligatorio")
-    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
-    @Column(name = "photo", nullable = false)
+    @Column(name = "photo")
     private String photo;
 
-    @NotNull(message = "campo obbligatorio")
-    @jakarta.validation.constraints.NotBlank(message = "campo obbligatorio")
+    @NotNull(message = "Campo Obblihatorio")
     @Column(name = "price", nullable = false)
-    private String price;
+    private Double price;
+
     // --------------------------------------------
     // ------------ GETTERS & SETTERS -------------
     // --------------------------------------------
@@ -71,11 +70,11 @@ public class Pizza {
         this.photo = photo;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
