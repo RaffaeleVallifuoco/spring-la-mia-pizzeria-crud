@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.validation.Valid;
@@ -76,4 +79,34 @@ public class PizzaController {
 
         return "/pizza/carousel";
     }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer id, Model model) {
+
+        model.addAttribute("pizza", repo.findById(id).get());
+
+        return "/pizza/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String Update(@Valid @ModelAttribute("pizza") Pizza pizzaUpdate, BindingResult bindingresult, Mode model) {
+
+        if (bindingresult.hasErrors()) {
+            return "/pizza/edit";
+        }
+
+        repo.save(pizzaUpdate);
+
+        return "redirect:/index";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        // TODO: process POST request
+
+        repo.deleteById(id);
+
+        return "redirect:/index";
+    }
+
 }
