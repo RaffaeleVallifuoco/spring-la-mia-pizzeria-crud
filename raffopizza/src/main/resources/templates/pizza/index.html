@@ -123,7 +123,7 @@
 
                                 <td>
                                     <div class="px-0"><img class="px-0" th:src="${pizza.photo}" width="90" height="90"
-                                            alt="URL PHOTO_PIZZA" />
+                                            alt="PHOTO" />
                                     </div>
                                 </td>
 
@@ -142,7 +142,7 @@
                                             th:href="@{|/index/edit/${pizza.id}|}">
                                             <i class="bi bi-pencil-fill"></i>
                                         </a>
-                                        
+
 
                                         <form th:action="@{'/index/delete/{id}'(id=${pizza.id})}" method="post">
                                             <button class="btn btn-danger" type="submit" id="submitButton"
@@ -152,34 +152,32 @@
                                             </button>
                                         </form>
 
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            Launch static backdrop modal
-                                        </button>
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form th:action="@{'/index/delete/{id}'(id=${pizza.id})}" method="post">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                                                            <button type="submit" class="btn btn-success">Conferma ed elimina</button>
-                                                        </form>
-                                                    </div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#deleteModal' + ${pizza.id}"
+                                        data-id="${pizza.id}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" th:id="'deleteModal' + ${pizza.id}" data-bs-backdrop="static" data-bs-keyboard="false"
+                                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma eliminazione</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Sei sicuro di voler eliminare questa pizza?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form th:action="@{'/index/delete/{id}'(id=${pizza.id})}" method="post">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                        <button type="submit" class="btn btn-danger">Elimina</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
 
                                 </td>
                             </tr>
@@ -295,6 +293,10 @@
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
         integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
         crossorigin='anonymous'></script>
+
+
+    <!-- JS to match modal with pizza.id -->
+
 
 </body>
 
