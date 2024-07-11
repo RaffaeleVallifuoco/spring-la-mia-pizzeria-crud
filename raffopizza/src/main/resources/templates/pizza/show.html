@@ -19,52 +19,70 @@
 
         .fixed-image {
             position: fixed;
-            top: 10vh;
-            left: 76vw;
-            height: 100vh;
+            top: 35vh;
+            left: 80vw;
+            height: 50vh;
         }
 
         .nav-bg {
             background: #23074d;
-            background: -webkit-linear-gradient(to right, #c22a00, #000000);
-            background: linear-gradient(to right, #ff3700, #330000);
+            background: linear-gradient(to right, #ff0000, #710101);
+        }
+
+        .carousel-height {
+            height: 400px;
+            /* Imposta l'altezza desiderata */
+            object-fit: cover;
+            /* Assicura che le immagini riempiano il contenitore mantenendo le proporzioniF */
         }
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- ------------------------
-             ---------HEADER---------
-             ------------------------ -->
+    <!-- ---------------------
+     -------HEADER--------   
+     --------------------- -->
 
     <header class="sticky-top">
-        <nav class="navbar nav-bg mb-5" >
-            <div class="container text-center">
-                <a class="navbar-brand " href="#">
 
+        <nav class="navbar nav-bg">
+            <div class="container-fluid">
+                <a class="navbar-brand my-0 py-0 mx-3" th:href="@{/index}">
+                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo " width="140" height="60" />
                 </a>
-                <a class="navbar-brand " th:href="@{/index}">
-                    <img th:src="@{/img/RaffoPizzaWhite.png}" alt="Logo" class="navbar-logo" width="160" height="80" />
-                </a>
-
-                <div class="flex-row" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 flex-row text-white fw-bold">
-
-
-
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex text-end">
+                        <li class="nav-item">
+                            <a class="nav-link active fs-6 my-2" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" href="#">Inserisci
+                                una nuova pizza</a>
+                        </li>
+                        <li>
+                            <form class="d-flex ms-auto w-25 opacity-75" role="search">
+                                <input class="form-control me-2 bg-tertiary border-0 rounded" type="search"
+                                    placeholder="Search" aria-label="Cerca nel sito">
+                                <button class="btn btn-outline-tertiary rounded" type="submit">Vai</button>
+                            </form>
+                        </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
 
-    <!-- ----------------------------
-         -----------MAIN-------------
-         ---------------------------- -->
+    <!-- ---------------------
+     --------MAIN---------   
+     --------------------- -->
+
 
     <main>
         <div class="container mt-4">
@@ -93,6 +111,45 @@
                 </div>
 
             </div>
+
+
+            <!-- IMG -->
+
+            <div class="float-end">
+
+                <img class="fixed-image" th:src="@{/img/raffacciouloNoBg.png}" alt="">
+
+                <!-- OFFCANVAS BUTTON
+            
+                                    <button class="btn btn-danger  p-2 fw-bold fs-5" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                        Crea la tua pizza
+                                    </button> -->
+            </div>
+
+            <!-- OFFCANVAS -->
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">
+                        Inserisci una nuova pizza</h4>
+
+                </div>
+                <div class="offcanvas-body">
+                    <h6>Inserisci una nuova pizza al menù. <br>
+                        Completa il form e inserisci a database la nuova pizza !</h6>
+                    <button class="btn btn-danger rounded text-white fs-5  mt-5">
+                        <a class="fw-bold  text-decoration-none p-4" th:href="@{/index/create}" target="_blank">Inizia a
+                            creare ora
+                            la
+                            tua pizza</a>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
     </main>
 
 
