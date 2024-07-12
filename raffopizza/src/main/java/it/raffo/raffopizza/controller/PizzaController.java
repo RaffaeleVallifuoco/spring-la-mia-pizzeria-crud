@@ -1,5 +1,7 @@
 package it.raffo.raffopizza.controller;
 
+import java.util.ArrayList;
+
 import org.apache.el.stream.Optional;
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,22 @@ public class PizzaController {
     private PizzaRepo repo;
 
     @GetMapping
-    public String index(Model model) {
+    public String index(Model model, @RequestParam(name = "name", required = false) String name,
+            @RequestParam(name = "description", required = false) String description) {
 
-        java.util.List<Pizza> pizzeList = repo.findAll();
+        java.util.List<Pizza> pizzeList = new ArrayList<>();
+
+        if (name == null && description == null) {
+
+            pizzeList = repo.findAll();
+
+        } else if (name == null) {
+            pizzeList = repo.findByDescriptionContainingIgnoreCase(description);
+        } else {
+
+            pizzeList = repo.findByNameContainingIgnoreCase(name);
+        }
+
         model.addAttribute("list", pizzeList);
 
         return "/pizza/index";
